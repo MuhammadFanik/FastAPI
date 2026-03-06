@@ -28,8 +28,12 @@ def view():
     # Sends the data back to whoever requested it
     return data
 
+
+# PATH PARAMETERS
 # Client can see a specific patient's data
 @app.get("/view_specific/{patient_id}")
+# Path() --> It is a path function that lets you add validation and metadata
+# ... -> This means required. It tells FastAPI that this parameter must be provided
 def view_specific(patient_id: str = Path(..., description="Patient ID in the Database", example="P001")):
     # Load all the patients
     data = load_data()
@@ -37,6 +41,8 @@ def view_specific(patient_id: str = Path(..., description="Patient ID in the Dat
     if patient_id in data:
         return data[patient_id]
     else:
+        # HTTPException --> Special Error in FastAPI that you throw when something goes wrong, and you want to send a
+        # specific error message and status code back to the user
         raise HTTPException(status_code=404, detail="Patient not found in the database")
 
 
