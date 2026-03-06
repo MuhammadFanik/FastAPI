@@ -54,7 +54,10 @@ def view_specific(patient_id: str = Path(..., description="Patient ID in the Dat
 @app.get("/sort")
 def sort_patients(
         # The query function lets you add validation just like PATH()
+
+        # Query Param1: sort_by --> It is required(...)
         sort_by: str = Query(..., description="Sort on the basis of height, weight, bmi"),
+        # Query Param2: order --> It is optional and has a default value of "asc"
         order: str = Query("asc", description="Sort in ascending or descending order")):
 
     # Valid fields on the basis on which the user can sort the data
