@@ -47,14 +47,19 @@ def view_specific(patient_id: str = Path(..., description="Patient ID in the Dat
 
 
 # Endpoint: Sort
+# Query Parameters --> They are the optional values that come after the "?" in a URL. They are used to filter/sort/search/add extra
+# options to your request
 # Query parameter 1 --> sort_by(required because of ...)
 # Query parameter 2 --> order(optional because I don't have ...). Default value is ASC
 @app.get("/sort")
 def sort_patients(
+        # The query function lets you add validation just like PATH()
         sort_by: str = Query(..., description="Sort on the basis of height, weight, bmi"),
         order: str = Query("asc", description="Sort in ascending or descending order")):
+
     # Valid fields on the basis on which the user can sort the data
     valid_fields = ["height", "weight", "bmi"]
+
     # Checks if the user has provided a valid field name
     if sort_by not in valid_fields:
         raise HTTPException(status_code=400, detail=f"Invalid field. Select from valid fields {valid_fields}")
