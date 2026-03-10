@@ -38,6 +38,14 @@ class Patient(BaseModel):
         else:
             return "Obese"
 
+class PatientUpdate(BaseModel):
+    name: Annotated[Optional[str], Field(default=None)]
+    city: Annotated[Optional[str], Field(default=None)]
+    age: Annotated[Optional[int], Field(default=None, gt=0)]
+    gender: Annotated[Optional[Literal["male", "female"]], Field(default=None)]
+    height: Annotated[Optional[float], Field(default=None, gt=0)]
+    weight: Annotated[Optional[float], Field(default=None, gt=0)]
+
 # Read data from a JSON file and load it into python
 def load_data():
     with open("patients.json", "r") as f:
@@ -126,11 +134,12 @@ def sort_patients(
 
 # Create a new patient record in the database
 @app.post("/create")
-def create_patient(patient: Patient):   # patient --> data from the request body
+def create_patient(patient: Patient):   # patient --> data from the request body. FastAPI converts JSON to Patient object
     # Load existing patient data from the JSON file. This returns a python dictionary
     data = load_data()
 
     # Check if the patient already with this ID already exists in the database
+    # .id is referring to the id field of the Patient Pydantic model
     if patient.id in data:
         # Raises 400 error if the patient already exists
         raise HTTPException(status_code=400, detail="Patient already exists")
@@ -147,3 +156,64 @@ def create_patient(patient: Patient):   # patient --> data from the request body
     # Return Success response
     # Returns JSONResponse --> Success message with 201 code
     return JSONResponse(status_code=201, content={"message": "Patient created successfully"})
+
+
+# Step 1 --> Update an existing patient's information using PUT method. It recalculates their BMI and verdict based on the data
+@app.put("/update/{patient_id}")
+# patient_id is the path param (Which patient to update) and it is sent in the URL
+# patient_update is the request body (What fields to update) and PatientUpdate is the pydantic model above. User can change all or some fields
+def update_patient(patient_id: str, patient_update: PatientUpdate):
+    # Step 2 --> Load the data - Gives data in a dict format
+    data = load_data()
+
+    # Step 3 --> Validate Patient Exists
+    if patient_id not in data:
+        raise HTTPException(status_code=404, detail="This patient does not exist in the database")
+
+    # Step 4 --> Get existing patient's current data
+    # Retrieves the data for the specific patient and this creates a reference, not a copy
+    existing_patient_data = data[patient_id]
+
+    # Step 5 --> Extract only updated fields
+    # Only includes fields that the user actually sent in the request (Imp for partial updates)
+    # And this will convert from Pydantic model to Python Dict
+    updated_patient_info = patient_update.model_dump(exclude_unset=True)
+
+    # Step 6 --> Apply updates to existing data
+    for key, value in updated_patient_info.items():
+        existing_patient_data[key] = value
+
+
+    # THIS WHOLE THINGS IS TO RECALCULATE THE BMI AND VERDICT
+
+    # Adds the patient ID back into the dictionary Remember: When we stored the patient initially, we excluded the ID (because it was the dictionary key). Now we need the ID to create a complete Patient Pydantic object
+    existing_patient_data["id"] = patient_id
+    # Convert to pydantic Object
+    patient_pydantic_obj = Patient(**existing_patient_data)
+    # Convert pydantic object -> dictionary
+    existing_patient_info = patient_pydantic_obj.model_dump(exclude="id")
+
+    # Step 10 --> Update main data dictionary
+    # Replaces the old patient data with the new updated one
+    data[patient_id] = existing_patient_info
+
+    # Save updated data to the file
+    save_data(data)
+
+    # Return Success Response
+    return JSONResponse(status_code=200, content={"message": "Patient updated successfully"})
+
+
+# DELETE endpoint
+@app.delete("/delete/{patient_id}")
+def delete(patient_id: str):
+    data = load_data()
+
+    if patient_id not in data:
+        raise HTTPException(status_code=404, detail="Patient not found")
+
+    del data[patient_id]
+
+    save_data(data)
+
+    return JSONResponse(status_code=200, content={"message": "Patient deleted successfully"})
