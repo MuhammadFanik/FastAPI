@@ -1,0 +1,18 @@
+{
+  "TXN001": {
+    "account_id": "ACC001",
+    "transaction_type": "deposit",
+    "amount": 500.00,
+    "description": "Salary deposit",
+    "date": "2024-03-01T10:30:00",
+    "balance_after": 5500.00
+  },
+  "TXN002": {
+    "account_id": "ACC001",
+    "transaction_type": "withdrawal",
+    "amount": 200.00,
+    "description": "ATM withdrawal",
+    "date": "2024-03-05T14:20:00",
+    "balance_after": 5300.00
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "ACC001": {
+    "account_holder": "John Doe",
+    "email": "john@example.com",
+    "phone": "+1234567890",
+    "account_type": "savings",
+    "balance": 5000.00,
+    "currency": "USD",
+    "interest_rate": 2.5,
+    "date_opened": "2024-01-15",
+    "status": "active"
+  },
+  "ACC002": {
+    "account_holder": "Jane Smith",
+    "email": "jane@example.com",
+    "phone": "+1234567891",
+    "account_type": "checking",
+    "balance": 3000.00,
+    "currency": "USD",
+    "interest_rate": 0.5,
+    "date_opened": "2024-02-20",
+    "status": "active"
+  }
+}
