@@ -188,10 +188,10 @@ def update_patient(patient_id: str, patient_update: PatientUpdate):
 
     # Adds the patient ID back into the dictionary Remember: When we stored the patient initially, we excluded the ID (because it was the dictionary key). Now we need the ID to create a complete Patient Pydantic object
     existing_patient_data["id"] = patient_id
-    # Convert to pydantic Object
+    # Convert to pydantic Object. ** Unpacks the dict into keyword arguments. Now when the patient object is created, Pydantic automatically recalculates the BMI and the verdict
     patient_pydantic_obj = Patient(**existing_patient_data)
-    # Convert pydantic object -> dictionary
-    existing_patient_info = patient_pydantic_obj.model_dump(exclude="id")
+    # Convert pydantic object -> dictionary. Excludes the ID, because we store it as a key, not inside the value. Now this new dict has a fresh calculated BMI and verdict
+    existing_patient_info = patient_pydantic_obj.model_dump(exclude=["id"])
 
     # Step 10 --> Update main data dictionary
     # Replaces the old patient data with the new updated one

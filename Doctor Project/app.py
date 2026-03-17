@@ -1,14 +1,19 @@
 from fastapi import FastAPI
 from pydantic import BaseModel, Field, computed_field
 from typing import Literal, Optional, Annotated
-import pickle
 from fastapi.responses import JSONResponse
-import pandas as pd
 from starlette.responses import JSONResponse
 
+# ML models are saved as .pkl files (binary format). Pickle is Python's way of saving and loading Python objects, including trained ML models
+import pickle
+# used to create a DataFrame, because the ML model was trained on a pandas DataFrame and expects that exact format as input
+import pandas as pd
+
+
 # Import the pre-trained ML model from the pickle file once at the startup, not on every request
+# Pickle files are binary, not plain text like JSON. This runs once when the server starts, not on every request
 with open("model.pkl", "rb") as f:
-    model = pickle.load(f)
+    model = pickle.load(f)  # this deserializes the binary data from the file object and converts it back into a Python object. After this line, the model is fully functional ML model ready to make predictions
 
 app = FastAPI()
 
@@ -78,6 +83,8 @@ class UserInput(BaseModel):
 # model.predict() runs and returns the insurance_prem_category and the result is sent back as JSON
 @app.post("/predict")
 def predict(data: UserInput):
+    # The dictionary {} represents one row of data where the key is a column name and the value is the data for that column
+    # The list [] wrapping means "Here is a list of rows". Even though there's only one row here, Dataframe always expects a list
     input_df = pd.DataFrame([{
         "bmi": data.bmi,
         "age_group": data.age_group,
@@ -87,6 +94,16 @@ def predict(data: UserInput):
         "occupation": data.occupation
     }])
 
+# Why only these 6 features and not all the 7 raw inputs?
+# The ML model was trained on these 6 features, not the raw inputs, So:
+# age --> age_group
+# weight + height --> bmi
+# city --> city_tier
+# smoker + bmi --> lifestyle_risk
+# Income_lpa and profession used as it is
+
+    # This calls the loaded ML model and passes in the dataframe you just built as an input.
+    # model.predict() always returns an array, no matter how many rows you pass in. Since the result is always an array, [0] simply extracts the first element from that array
     prediction = model.predict(input_df)[0]
 
     return JSONResponse(status_code=200, content={"predicted_category": prediction})
