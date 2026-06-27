@@ -70,8 +70,7 @@ def about():
 # Reads data from the JSON file and sends it back to whoever requests it
 @app.get("/view")
 def view():
-    # Calling the load_data function created earlier. That function opens the patients.JSON file, reads it, and returns the data. The data
-    # is now stored in the data variable
+    # Calling the load_data function created earlier. That function opens the patients.JSON file, reads it, and returns the data. The data is now stored in the data variable
     data = load_data()
     # Sends the data back to whoever requested it
     return data
