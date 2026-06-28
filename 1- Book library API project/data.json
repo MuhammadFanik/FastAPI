@@ -1,0 +1,112 @@
+[
+  {
+    "id": 1,
+    "title": "The Pragmatic Programmer",
+    "author": "Andrew Hunt and David Thomas",
+    "year": 1999,
+    "genre": "Programming",
+    "price": 42.5,
+    "rating": 4.8,
+    "description": "A practical guide to becoming a better software developer.",
+    "available": true
+  },
+  {
+    "id": 2,
+    "title": "Clean Code",
+    "author": "Robert C. Martin",
+    "year": 2008,
+    "genre": "Programming",
+    "price": 38.99,
+    "rating": 4.7,
+    "description": "A handbook of agile software craftsmanship.",
+    "available": true
+  },
+  {
+    "id": 3,
+    "title": "Atomic Habits",
+    "author": "James Clear",
+    "year": 2018,
+    "genre": "Self Help",
+    "price": 18.75,
+    "rating": 4.6,
+    "description": "A guide to building good habits and breaking bad ones.",
+    "available": true
+  },
+  {
+    "id": 4,
+    "title": "Deep Work",
+    "author": "Cal Newport",
+    "year": 2016,
+    "genre": "Productivity",
+    "price": 21.5,
+    "rating": 4.4,
+    "description": "Rules for focused success in a distracted world.",
+    "available": false
+  },
+  {
+    "id": 5,
+    "title": "1984",
+    "author": "George Orwell",
+    "year": 1949,
+    "genre": "Dystopian",
+    "price": 12.99,
+    "rating": 4.7,
+    "description": "A dystopian novel about surveillance and authoritarianism.",
+    "available": true
+  },
+  {
+    "id": 6,
+    "title": "Animal Farm",
+    "author": "George Orwell",
+    "year": 1945,
+    "genre": "Political Satire",
+    "price": 10.99,
+    "rating": 4.5,
+    "description": "A satirical story about power and corruption.",
+    "available": true
+  },
+  {
+    "id": 7,
+    "title": "The Hobbit",
+    "author": "J.R.R. Tolkien",
+    "year": 1937,
+    "genre": "Fantasy",
+    "price": 15.25,
+    "rating": 4.8,
+    "description": "A fantasy adventure about Bilbo Baggins.",
+    "available": false
+  },
+  {
+    "id": 8,
+    "title": "Dune",
+    "author": "Frank Herbert",
+    "year": 1965,
+    "genre": "Science Fiction",
+    "price": 17.99,
+    "rating": 4.6,
+    "description": "A science fiction novel set on the desert planet Arrakis.",
+    "available": true
+  },
+  {
+    "id": 9,
+    "title": "The Psychology of Money",
+    "author": "Morgan Housel",
+    "year": 2020,
+    "genre": "Finance",
+    "price": 19.99,
+    "rating": 4.5,
+    "description": "Lessons about wealth, greed, and happiness.",
+    "available": true
+  },
+  {
+    "id": 10,
+    "title": "Start With Why",
+    "author": "Simon Sinek",
+    "year": 2009,
+    "genre": "Business",
+    "price": 16.5,
+    "rating": 4.3,
+    "description": null,
+    "available": true
+  }
+]
