@@ -114,3 +114,19 @@ def remote_jobs():
         raise HTTPException(status_code=404, detail="No remote jobs exists")
 
     return remote_jobs_list
+
+# 6th Endpoint: Search by company name
+@app.get("/search_company/{company_name}")
+def company_name(company_name: str = Path(..., description="Name of the company", examples=["Meta"])):
+    # load the data
+    data = load_data()
+
+    company_results = []
+    for job in data:
+        if job["company"] == company_name:
+            company_results.append(job)
+
+    if not company_results:
+        raise HTTPException(status_code = 404, detail="No such company exists in the database")
+
+    return company_results
