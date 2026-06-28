@@ -72,7 +72,7 @@ def about():
 def view():
     # Calling the load_data function created earlier. That function opens the patients.JSON file, reads it, and returns the data. The data is now stored in the data variable
     data = load_data()
-    # Sends the data back to whoever requested it
+    # Sends the data back to whoever requested it. FastAPI automatically converts it back into JSON  response before sending it back to the client
     return data
 
 
