@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "name": "Sam",
+    "subject": "Maths",
+    "marks" : 68.2,
+    "grade": "C",
+    "attendance": 50.3
+  },
+  {
+    "id": 2,
+    "name": "Ali",
+    "subject": "Maths",
+    "marks" : 97.2,
+    "grade": "A",
+    "attendance": 99.5
+  },
+  {
+    "id": 3,
+    "name": "Clara",
+    "subject": "Science",
+    "marks" : 99.5,
+    "grade": "A",
+    "attendance": 99.2
+  },
+  {
+    "id": 4,
+    "name": "Helen",
+    "subject": "Science",
+    "marks" : 90.5,
+    "grade": "A",
+    "attendance": 82.9
+  },
+  {
+    "id": 5,
+    "name": "Arijit Singh",
+    "subject": "History",
+    "marks" : 100.0,
+    "grade": "A",
+    "attendance": 100.0
+  },
+  {
+    "id": 6,
+    "name": "Usman",
+    "subject": "Geography",
+    "marks" : 86.6,
+    "grade": "B",
+    "attendance": 87.1
+  },
+  {
+    "id": 7,
+    "name": "Umar",
+    "subject": "History",
+    "marks" : 96.3,
+    "grade": "A",
+    "attendance": 79.5
+  },
+  {
+    "id": 8,
+    "name": "Max",
+    "subject": "Further Maths",
+    "marks" : 90.0,
+    "grade": "A",
+    "attendance": 86.3
+  },
+  {
+    "id": 9,
+    "name": "Marc",
+    "subject": "Databases",
+    "marks" : 95.0,
+    "grade": "A",
+    "attendance": 96.4
+  },
+  {
+    "id": 10,
+    "name": "Simon",
+    "subject": "DSA",
+    "marks" : 97.5,
+    "grade": "A",
+    "attendance": 84.5
+  }
+]
