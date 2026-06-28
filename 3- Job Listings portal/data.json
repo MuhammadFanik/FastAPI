@@ -1,0 +1,152 @@
+[
+  {
+    "id": 1,
+    "title": "Data Analyst",
+    "company": "Google",
+    "location": "New York",
+    "min_salary": 70000,
+    "max_salary": 100000,
+    "experience_yrs": 2.0,
+    "remote": true,
+    "rating": 4.8,
+    "requirements": {
+      "degree": "Bachelors",
+      "skills": ["Python", "SQL", "Excel"]
+    }
+  },
+  {
+    "id": 2,
+    "title": "Backend Developer",
+    "company": "Amazon",
+    "location": "Seattle",
+    "min_salary": 90000,
+    "max_salary": 140000,
+    "experience_yrs": 3.0,
+    "remote": false,
+    "rating": 4.5,
+    "requirements": {
+      "degree": "Bachelors",
+      "skills": ["Java", "Spring Boot", "AWS"]
+    }
+  },
+  {
+    "id": 3,
+    "title": "Machine Learning Engineer",
+    "company": "Meta",
+    "location": "San Francisco",
+    "min_salary": 120000,
+    "max_salary": 180000,
+    "experience_yrs": 5.0,
+    "remote": false,
+    "rating": 4.6,
+    "requirements": {
+      "degree": "Masters",
+      "skills": ["Python", "PyTorch", "MLflow"]
+    }
+  },
+  {
+    "id": 4,
+    "title": "Data Scientist",
+    "company": "Netflix",
+    "location": "Los Angeles",
+    "min_salary": 110000,
+    "max_salary": 160000,
+    "experience_yrs": 4.0,
+    "remote": true,
+    "rating": 4.7,
+    "requirements": {
+      "degree": "Masters",
+      "skills": ["Python", "R", "SQL", "Tableau"]
+    }
+  },
+  {
+    "id": 5,
+    "title": "Frontend Developer",
+    "company": "Spotify",
+    "location": "London",
+    "min_salary": 60000,
+    "max_salary": 90000,
+    "experience_yrs": 1.5,
+    "remote": true,
+    "rating": 4.3,
+    "requirements": {
+      "degree": "Bachelors",
+      "skills": ["React", "TypeScript", "CSS"]
+    }
+  },
+  {
+    "id": 6,
+    "title": "DevOps Engineer",
+    "company": "Microsoft",
+    "location": "Seattle",
+    "min_salary": 95000,
+    "max_salary": 135000,
+    "experience_yrs": 3.5,
+    "remote": false,
+    "rating": 4.4,
+    "requirements": {
+      "degree": "Bachelors",
+      "skills": ["Docker", "Kubernetes", "Azure"]
+    }
+  },
+  {
+    "id": 7,
+    "title": "AI Research Scientist",
+    "company": "OpenAI",
+    "location": "San Francisco",
+    "min_salary": 150000,
+    "max_salary": 250000,
+    "experience_yrs": 6.0,
+    "remote": false,
+    "rating": 4.9,
+    "requirements": {
+      "degree": "PhD",
+      "skills": ["Python", "PyTorch", "Research", "Mathematics"]
+    }
+  },
+  {
+    "id": 8,
+    "title": "Business Analyst",
+    "company": "JP Morgan",
+    "location": "New York",
+    "min_salary": 75000,
+    "max_salary": 105000,
+    "experience_yrs": 2.5,
+    "remote": false,
+    "rating": 4.2,
+    "requirements": {
+      "degree": "Bachelors",
+      "skills": ["Excel", "SQL", "PowerBI", "Finance"]
+    }
+  },
+  {
+    "id": 9,
+    "title": "Cloud Architect",
+    "company": "IBM",
+    "location": "Chicago",
+    "min_salary": 130000,
+    "max_salary": 175000,
+    "experience_yrs": 7.0,
+    "remote": true,
+    "rating": 4.1,
+    "requirements": {
+      "degree": "Masters",
+      "skills": ["AWS", "Azure", "GCP", "Terraform"]
+    }
+  },
+  {
+    "id": 10,
+    "title": "Full Stack Developer",
+    "company": "Shopify",
+    "location": "Toronto",
+    "min_salary": 85000,
+    "max_salary": 120000,
+    "experience_yrs": 3.0,
+    "remote": true,
+    "rating": 4.5,
+    "requirements": {
+      "degree": "Bachelors",
+      "skills": ["React", "Node.js", "PostgreSQL", "GraphQL"]
+    }
+  }
+]
