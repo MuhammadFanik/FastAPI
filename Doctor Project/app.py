@@ -23,8 +23,10 @@ tier_1_cities = ["Mumbai", "Delhi", "Bangalore", "Chennai", "Kolkata", "Hyderaba
 tier_2_cities = [ "Jaipur", "Chandigarh", "Indore", "Lucknow", "Patna", "Ranchi", "Visakhapatnam", "Coimbatore", "Bhopal", "Nagpur", "Vadodara", "Surat", "Rajkot", "Jodhpur", "Raipur", "Amritsar", "Varanasi", "Agra", "Dehradun", "Mysore", "Jabalpur", "Guwahati", "Thiruvananthapuram", "Ludhiana", "Nashik", "Allahabad", "Udaipur", "Aurangabad", "Hubli", "Belgaum", "Salem", "Vijayawada", "Tiruchirappalli","Bhavnagar", "Gwalior", "Dhanbad", "Bareilly", "Aligarh", "Gaya", "Kozhikode", "Warangal", "Kolhapur", "Bilaspur", "Jalandhar", "Noida", "Guntur", "Asansol", "Siliguri"]
 
 
+# This is Pydantic model with feature engineering. The UserInput model does two jobs at once - validation and feature engineering
 # Pydantic model: This validates all the incoming data before it touches your model
 class UserInput(BaseModel):
+    # These are the 7 raw feature values that the user provides
     age: Annotated[int, Field(..., description="Age of the user in years", gt=0, lt=120)]
     weight: Annotated[float, Field(..., description="weight of the user in kgs", gt=0)]
     height: Annotated[float, Field(..., description="Height of the user in mtrs", gt=0, lt=2.7)]
@@ -37,14 +39,14 @@ class UserInput(BaseModel):
 
     # Computed fields are basically feature engineering inside pydantic model
 
-    # Calculates BMI
+    # Calculates BMI - combines height and weight into one feature
     @computed_field
     @property
     def bmi(self) -> float:
         bmi = self.weight/(self.height**2)
         return bmi
 
-    # Categorizes Lifestyle risk on their bmi and smoking habit
+    # Categorizes Lifestyle risk on their bmi and smoking habit - combines smoker and bmi into one feature
     @computed_field
     @property
     def lifestyle_risk(self) -> str:
@@ -55,7 +57,8 @@ class UserInput(BaseModel):
         else:
             return "low"
 
-    # Categorizes age groups
+
+    # Categorizes age groups - Converts raw age
     @computed_field
     @property
     def age_group(self) -> str:
