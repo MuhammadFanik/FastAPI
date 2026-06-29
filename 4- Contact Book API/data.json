@@ -1,0 +1,62 @@
+{
+  "C001": {
+    "name": "Ali Hassan",
+    "phone": "+92-300-1234567",
+    "email": "ali.hassan@gmail.com",
+    "city": "Lahore"
+  },
+  "C002": {
+    "name": "Ravi Mehta",
+    "phone": "+91-98765-43210",
+    "email": "ravi.mehta@gmail.com",
+    "city": "Mumbai"
+  },
+  "C003": {
+    "name": "Sarah Johnson",
+    "phone": "+1-555-234-5678",
+    "email": "sarah.j@outlook.com",
+    "city": "New York"
+  },
+  "C004": {
+    "name": "Chen Wei",
+    "phone": "+86-138-0013-8000",
+    "email": "chen.wei@163.com",
+    "city": "Shanghai"
+  },
+  "C005": {
+    "name": "Fatima Malik",
+    "phone": "+92-321-9876543",
+    "email": "fatima.malik@yahoo.com",
+    "city": "Karachi"
+  },
+  "C006": {
+    "name": "James Carter",
+    "phone": "+1-555-876-5432",
+    "email": "james.carter@gmail.com",
+    "city": "Chicago"
+  },
+  "C007": {
+    "name": "Priya Sharma",
+    "phone": "+91-99887-76655",
+    "email": "priya.sharma@hotmail.com",
+    "city": "Delhi"
+  },
+  "C008": {
+    "name": "Omar Farooq",
+    "phone": "+92-333-4567890",
+    "email": "omar.farooq@gmail.com",
+    "city": "Islamabad"
+  },
+  "C009": {
+    "name": "Emma Wilson",
+    "phone": "+44-7911-123456",
+    "email": "emma.wilson@gmail.com",
+    "city": "London"
+  },
+  "C010": {
+    "name": "Carlos Rivera",
+    "phone": "+52-55-1234-5678",
+    "email": "carlos.rivera@gmail.com",
+    "city": "Mexico City"
+  }
+}
