@@ -137,3 +137,20 @@ def update_customer(customer_id: str, update_customer:UpdateCustomer):
     save_data(data)
 
     return JSONResponse(status_code=200, content={"message": "Customer updated successfully"})
+
+
+
+# Endpoint 6 - Delete a contact
+@app.delete("/delete/{customer_id}")
+def delete_customer(customer_id: str = Path(..., description="ID of the customer you want to delete")):
+    # Load the data
+    data = load_data()
+
+    # Check if the customer exists
+    if customer_id not in data:
+        raise HTTPException(status_code=404, detail="Customer not in our database")
+
+    del data[customer_id]
+
+    save_data(data)
+    return JSONResponse(status_code=200, content={"message": "Customer deleted successfully"})
