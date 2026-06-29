@@ -60,3 +60,17 @@ def view_all():
     data = load_data()
     # Return the data
     return data
+
+
+# Endpoint 3 - View a specific contact by ID
+@app.get("/contacts/{contact_id}")
+def view_specific(contact_id: str = Path(..., description="Customer ID")):
+    # Load the data
+    data = load_data()
+
+    # Check if the id does not match with any of the ids in the data, then throw an error
+    if contact_id not in data:
+        raise HTTPException(status_code=404, detail="Customer not found")
+
+    # Otherwise return the value
+    return data[contact_id]
