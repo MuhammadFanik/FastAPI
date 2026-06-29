@@ -1,0 +1,72 @@
+{
+  "E001": {
+    "title": "Grocery Shopping",
+    "amount": 85.50,
+    "category": "Food",
+    "date": "2026-01-15",
+    "description": "Weekly grocery run"
+  },
+  "E002": {
+    "title": "Netflix Subscription",
+    "amount": 15.99,
+    "category": "Entertainment",
+    "date": "2026-01-18",
+    "description": "Monthly Netflix plan"
+  },
+  "E003": {
+    "title": "Uber Ride",
+    "amount": 12.40,
+    "category": "Transport",
+    "date": "2026-01-20",
+    "description": "Ride to the airport"
+  },
+  "E004": {
+    "title": "Electricity Bill",
+    "amount": 120.00,
+    "category": "Utilities",
+    "date": "2026-01-22",
+    "description": "Monthly electricity payment"
+  },
+  "E005": {
+    "title": "Python Course",
+    "amount": 49.99,
+    "category": "Education",
+    "date": "2026-02-01",
+    "description": "Udemy Python bootcamp"
+  },
+  "E006": {
+    "title": "Restaurant Dinner",
+    "amount": 67.00,
+    "category": "Food",
+    "date": "2026-02-05",
+    "description": "Dinner with friends"
+  },
+  "E007": {
+    "title": "Gym Membership",
+    "amount": 40.00,
+    "category": "Health",
+    "date": "2026-02-10",
+    "description": "Monthly gym fee"
+  },
+  "E008": {
+    "title": "Bus Pass",
+    "amount": 30.00,
+    "category": "Transport",
+    "date": "2026-02-12",
+    "description": "Monthly bus pass"
+  },
+  "E009": {
+    "title": "Doctor Visit",
+    "amount": 95.00,
+    "category": "Health",
+    "date": "2026-03-01",
+    "description": "General checkup"
+  },
+  "E010": {
+    "title": "Amazon Purchase",
+    "amount": 55.75,
+    "category": "Shopping",
+    "date": "2026-03-05",
+    "description": "Bought a keyboard"
+  }
+}
