@@ -113,3 +113,5 @@ def predict(data: UserInput):
 
     # Instead of returning a plain dictionary, JSONResponse gives you more control over the status code and the response format
     return JSONResponse(status_code=200, content={"predicted_category": prediction})
+
+# The most important link is that whatever feature engineering was done in the notebook must be replicated exactly in app.py. The model learned patterns from age_group, city_tier, lifestyle_risk etc. — if you feed it different features or differently named columns, the predictions will be wrong or it will crash entirely. That is why the computed fields in Pydantic mirror the feature engineering steps from the notebook exactly.
