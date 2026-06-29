@@ -89,6 +89,7 @@ def predict(data: UserInput):
     # The dictionary {} represents one row of data where the key is a column name and the value is the data for that column
     # The list [] wrapping means "Here is a list of rows". Even though there's only one row here, Dataframe always expects a list
     input_df = pd.DataFrame([{
+        # This builds a dataframe with exactly 6 features on which the model was trained on
         "bmi": data.bmi,
         "age_group": data.age_group,
         "city_tier": data.city_tier,
@@ -109,4 +110,6 @@ def predict(data: UserInput):
     # model.predict() always returns an array, no matter how many rows you pass in. Since the result is always an array, [0] simply extracts the first element from that array
     prediction = model.predict(input_df)[0]
 
+
+    # Instead of returning a plain dictionary, JSONResponse gives you more control over the status code and the response format
     return JSONResponse(status_code=200, content={"predicted_category": prediction})
